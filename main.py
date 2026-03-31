@@ -15,13 +15,13 @@ def getLatLon(local):
             dados = latlon.json()
             if not dados:
                 print("lugar não encontrado")
-                return None, None
+                return None
             else:
                 print(dados)
                 return dados
     else:
         print(f'Erro: {latlon.status_code}')
-        return None, None
+        return None
 
 # info = getLatLon(local)
 # lat = info[0]["lat"]

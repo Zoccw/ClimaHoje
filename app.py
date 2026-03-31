@@ -59,6 +59,7 @@ def index():
                 "Squall": "💨",
                 "Tornado": "🌪️",
                 "Clear": "☀️",
+                "Clouds": "☁️",
             }
             else:
                 periodo = "noite"
@@ -77,6 +78,7 @@ def index():
                 "Squall": "💨",
                 "Tornado": "🌪️",
                 "Clear": "🌑",
+                "Clouds": "☁️",
             }
 
 

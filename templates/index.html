@@ -27,7 +27,7 @@
         </div>
 
         {% if clima.temp_atual %}
-            <h1 class="temp">{{ condicao[clima.descricao] }}{{ clima.temp_atual }}°C</h1>
+            <h1 class="temp">{{ condicao.get(clima.condicao, '') }}{{ clima.temp_atual }}°C</h1>
         {% endif %}
         {% if localizacao.country %}
             <img class="flag" src="https://flagsapi.com/{{ localizacao.country | upper }}/flat/64.png">
