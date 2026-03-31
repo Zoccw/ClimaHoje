@@ -1,0 +1,58 @@
+{% extends 'homepage.html' %}
+
+{% block head %}
+    <title>Clima App</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1 id="title_cont">clima hoje</h1>
+    <form method="POST">
+    <label for="entrada">Consultar Temperatura Atual :</label>
+    <input type="text" id="entrada" name="dado_place">
+    <button type="submit">Buscar</button>
+    </form>
+
+    <div class="info">
+
+        <div class="time_group">
+            {% if timedate %}
+            	
+            {% endif %} 
+            <h2 class="time">{{ timedate.time }}</h2>
+            {% if timedate.timezone %}
+                <h3 class="timezone">{{ timedate.timezone }}</h3>
+            {% endif %}
+        </div>
+
+        {% if clima.temp_atual %}
+            <h1 class="temp">{{ condicao[clima.descricao] }}{{ clima.temp_atual }}°C</h1>
+        {% endif %}
+        {% if localizacao.country %}
+            <img class="flag" src="https://flagsapi.com/{{ localizacao.country | upper }}/flat/64.png">
+        {% endif %}
+
+    </div>
+</div>
+
+
+{#    {% set ignorar = ["country"] %}#}
+<div class="info_adicional">
+    {% if clima and localizacao %}
+        <h3>Resultado:</h3>
+        {% for rotulo, valor in localizacao.items() %}
+        {#{% if valor and rotulo not in ignorar %}#}
+            {% if valor and rotulo not in ignorar %}
+                <p>{{ rotulo }}: {{ valor }}</p>
+            {% endif %}
+        {% endfor %}
+
+        {% for rotulo, valor in clima.items() %}
+            {% if valor %}
+                <p>{{ rotulo }}: {{ valor }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}
